@@ -80,6 +80,7 @@
                         <label class="form-label">Selecciona la categoria: </label>
                         <select class="form-control mb-3" name="categoria" id="categorias">
                             <option value="">Seleccione:</option>
+                            <!-- OPTION CATEGORIA -->
                             <?php
                             $query = $bd->prepare("SELECT * FROM categoria");
                             $query->execute();
