@@ -81,7 +81,7 @@
                         <select class="form-control mb-3" name="categoria" id="categorias">
                             <option value="">Seleccione:</option>
                             <?php
-                            // CATEGORIA
+                            // CATEGORIAS
                             $query = $bd->prepare("SELECT * FROM categoria");
                             $query->execute();
                             $data = $query->fetchAll();
