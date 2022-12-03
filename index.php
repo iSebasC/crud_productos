@@ -2,7 +2,7 @@
 
 <?php
     include_once "model/conexion.php";
-    $sentencia = $bd -> query("SELECT productos.id,categoria.descripcion, productos.nombre, productos.precio FROM categoria INNER JOIN productos ON categoria.idcategoria=productos.idcategoria");
+    $sentencia = $bd -> query("SELECT productos.id,categoria.nombre_categoria, productos.nombre, productos.precio FROM categoria INNER JOIN productos ON categoria.idcategoria=productos.idcategoria");
     $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
     //print_r($productos);
 ?>
@@ -45,7 +45,7 @@
 
                             <tr>
                                 <td scope="row"><?php echo $dato->id; ?></td>
-                                <td><?php echo $dato->descripcion; ?></td>
+                                <td><?php echo $dato->nombre_categoria; ?></td>
                                 <td><?php echo $dato->nombre; ?></td>
                                 <td>S/. <?php echo $dato->precio; ?></td>
                                 <td><a class="text-success" href="editar.php?id=<?php echo $dato->id; ?>"><i class="bi bi-pencil-square"></i></a></td>
@@ -84,7 +84,7 @@
                         $data = $query->fetchAll();
 
                         foreach ($data as $valores):
-                        echo '<option value="'.$valores["idcategoria"].'">'.$valores["nombre"].'</option>';
+                        echo '<option value="'.$valores["idcategoria"].'">'.$valores["nombre_categoria"].'</option>';
                         endforeach;
                         ?>
                     </select>
