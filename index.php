@@ -76,18 +76,21 @@
                         <label class="form-label">Precio: </label>
                         <input type="number" class="form-control" id="precio" name="txtPrecio" autofocus>
                     </div>
-                    <select class="form-control mb-3" name="categoria" id="categorias">
-                        <option value="">Seleccione:</option>
-                        <?php
-                        $query = $bd->prepare("SELECT * FROM categoria");
-                        $query->execute();
-                        $data = $query->fetchAll();
-
-                        foreach ($data as $valores):
-                        echo '<option value="'.$valores["idcategoria"].'">'.$valores["nombre_categoria"].'</option>';
-                        endforeach;
-                        ?>
-                    </select>
+                    <div class="mb-3">
+                        <label class="form-label">Selecciona la categoria: </label>
+                        <select class="form-control mb-3" name="categoria" id="categorias">
+                            <option value="">Seleccione:</option>
+                            <?php
+                            $query = $bd->prepare("SELECT * FROM categoria");
+                            $query->execute();
+                            $data = $query->fetchAll();
+    
+                            foreach ($data as $valores):
+                            echo '<option value="'.$valores["idcategoria"].'">'.$valores["nombre_categoria"].'</option>';
+                            endforeach;
+                            ?>
+                        </select>
+                    </div>
                     <div class="d-grid">
                         <input type="hidden" name="oculto" value="1">
                         <input type="submit" id="submit" class="btn btn-primary" value="Registrar" onclick="validar()">
