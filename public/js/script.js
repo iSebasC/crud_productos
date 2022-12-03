@@ -42,11 +42,12 @@ function validar(){
 }
 
 function actualizar() {
-     Swal.fire({
-        icon: 'success!',
-        title: 'Registro actualizado correctamente',
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Actualizado correctamente',
         showConfirmButton: false,
-        timer: 3000
+        timer: 1500
       })
     document.actualizado.submit();
 }
